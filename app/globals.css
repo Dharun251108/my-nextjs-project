@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030712;
+  --foreground: #f8fafc;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom utilities */
+.glass {
+  background: rgba(17, 24, 39, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #818cf8, #c084fc, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes slow-spin {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.bg-mesh {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08), transparent 30%),
+    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08), transparent 30%),
+    radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.05), transparent 40%);
+  animation: slow-spin 25s ease-in-out infinite alternate;
+}
